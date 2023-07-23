@@ -22,6 +22,6 @@ SET "PROJECTS_BASE_DIR=%NOT_SET%"
  IF "%GITHUB_BRANCH%" == "%NOT_SET%" SET "%GITHUB_BRANCH%=%3"
 
  ::CALL_FUNC_config.bat config.txt
- CALL_FUNC_show_config.bat
+ CALL "%FUNC_DIR%/show_config.bat"
 
 :END

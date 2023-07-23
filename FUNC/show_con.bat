@@ -1,6 +1,7 @@
-:: FUNC/SHOW_CONFIG.BAT
+:: FUNC/SHOW_CON.BAT
 :: Displays the project configuration
 ::===============================================================================================::
+ECHO "===FUNC:SHOW_CON.BAT==="
 ECHO "USER: %GITHUB_USER%"
 ECHO "PROJECT: %GITHUB_PROJECT%"
 ECHO "BRANCH: %GITHUB_BRANCH%"

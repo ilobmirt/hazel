@@ -1,0 +1,28 @@
+::HAZEL/main.bat
+::Ilobmirt - 2023-JUL-23
+::GPLv3 - Pulls other github projects to your DOS system
+@ECHO OFF
+
+SET "TRUE=0"
+SET "FALSE=1"
+SET "NOT_SET=>>NOT SET<<"
+SET /E LOCAL_DIR=cd
+SET "FUNC_DIR=%LOCAL_DIR%\FUNC\"
+SET "CALL_FUNC_=CALL %FUNC_DIR%"
+SET "START_FUNC=SETLOCAL"
+SET "END_FUNC=ENDLOCAL & EXIT /B %_result%"
+
+SET "GITHUB_USER=%NOT_SET%"
+SET "GITHUB_PROJECT=%NOT_SET%"
+SET "GITHUB_BRANCH=%NOT_SET%"
+SET "PROJECTS_BASE_DIR=%NOT_SET%"
+
+:START
+ 
+ CALL_FUNC_prereq.bat curl
+ CALL_FUNC_prereq.bat tar
+
+ CALL_FUNC_config.bat config.txt
+ CALL_FUNC_show_config.bat
+
+:END

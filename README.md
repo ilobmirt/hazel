@@ -1,2 +1,2 @@
 # hazel
-Dos Script for Accessing Github Projects
+Project for building custom CI/CD Environments for DOS

@@ -1,4 +1,0 @@
-GITHUB_USER=ilobmirt
-GITHUB_PROJECT=hazel
-GITHUB_BRANCH=main
-PROJECTS_BASE_DIR=C:\devel\git\

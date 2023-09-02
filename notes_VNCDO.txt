@@ -1,0 +1,32 @@
+-----D: = FD13LIVE.iso-----
+fdisk /pri:100 1 /reboot(ENTER)
+-----reboots-----
+cls(ENTER)
+format /S C:(ENTER)
+[screen cap]
+"YES(ENTER)"
+-----does the thing-----
+mkdir C:\FREEDOS(ENTER)
+cd packages\base\(ENTER)
+FOR %F IN (*.ZIP) DO UNZIP %F -d C:\FREEDOS(ENTER)
+cd ..\unix\(ENTER)
+UNZIP GNUSED.zip -d C:\FREEDOS(ENTER)
+cd ..\util\(ENTER)
+UNZIP V8POWER.zip -d C:\FREEDOS(ENTER)
+cd ..\..\FREEDOS\APPINFO(ENTER)
+copy cdrcache.* C:\FREEDOS\APPINFO(ENTER)
+cd ..\BIN(ENTER)
+copy /Y *.sys C:\FREEDOS\BIN(ENTER)
+FOR %F IN (fdimples.exe fdinst.exe fdnpkg.cfg command.com) DO copy %F C:\FREEDOS\BIN(ENTER)
+cd ..\..\FDOS_X86\FREEDOS\CONFIGS(ENTER)
+copy CONFIG.DEF C:\FDCONFIG.SYS(ENTER)
+copy AUTOEXEC.DEF C:\FDAUTO.BAT(ENTER)
+C:(ENTER)
+CD C:\FREEDOS\BIN\(ENTER)
+sed 's/\$FDRIVE\$/C:/g;s/\$FTARGET\$/C:\\Freedos/g;s/\$FLANG\$/EN/g;s/\$TZ\$/UTC/g;s/\(\$.*\$\)/rem\ \1/g' C:\FDAUTO.BAT -i(ENTER)
+sed 's/\$FDRIVE\$/C:/g;s/\$FTARGET\$/C:\\Freedos/g;s/\$FCCC\$/001/g;s/\$FCKC\$/858/g;s/\(\$.*\$\)/rem\ \1/g' C:\FDCONFIG.SYS -i(ENTER)
+shutdown(ENTER)
+-----END OF PART 1-----
+-----BOOT, but start from C: DRIVE-----
+SET /E basepkgs=type basepkgs.txt
+FOR %F IN (%basepkgs%) DO UNZIP %F -d C:\FREEDOS
